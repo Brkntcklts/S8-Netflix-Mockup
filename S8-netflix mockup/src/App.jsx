@@ -10,7 +10,7 @@ import Header from "./conponents/Header/Header";
 
 function App() {
   const [count, setCount] = useState(0);
-
+const [activeProfile,setActiveProfile]=useState();
   return (
     <>
     <Switch>
@@ -18,15 +18,15 @@ function App() {
         <h1>Welcome to Netflix</h1>
       </Route>
       <Route path="/home">
-        <Header />
-        <Home />
+        <Header activeProfile={activeProfile}/>
+        <Home activeProfile={activeProfile}/>
       </Route>
       <Route exact path="/login">
       <Header/>
         <Login />
       </Route>
       <Route path="/welcome">
-        <Welcome />
+        <Welcome setActiveProfile={setActiveProfile}/>
       </Route>
       </Switch>
      <div className="dev-navigation">
